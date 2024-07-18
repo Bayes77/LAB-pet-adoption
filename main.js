@@ -13,7 +13,7 @@ const pets = [
       color: "Brown",
       specialSkill: "Just picks the tomatoes off of a sandwich instead of requesting a whole new sandwich.",
       type: "dino",
-      imageUrl: "http://www.jozilife.co.za/wp-content/uploads/The-Dino-Expo.jpg",
+      imageUrl: "https://i.pngimg.me/thumb/f/720/6519249363271680.jpg",
     },
     {
       id: 3,
@@ -125,7 +125,7 @@ const pets = [
       color: "Brown",
       specialSkill: "Drives at a safe rate of speed in snow or rain.",
       type: "dino",
-      imageUrl: "https://images.readwrite.com/wp-content/uploads/2018/03/t-rex-dino-quiz-e1490854556549.jpg"
+      imageUrl: "https://p7.hiclipart.com/preview/408/316/913/digimon-world-next-order-terriermon-agumon-guilmon-digimon.jpg"
     },
     {
      id: 17,
@@ -141,7 +141,7 @@ const pets = [
       color: "Brown",
       specialSkill: "Proficient in air guitar",
       type: "dino",
-      imageUrl: "https://www.nation.co.ke/image/view/-/4078922/highRes/1742693/-/maxw/600/-/1453yvh/-/DINO.jpg"
+      imageUrl: "https://preview.redd.it/i-saw-two-people-doing-this-so-i-decided-to-do-my-toy-v0-bsi5malj82ba1.jpg?width=540&format=pjpg&auto=webp&s=6a1be189bc6f72d406cfe7d6410d93f1f3a4a02e"
     },
     {
       id: 19,
@@ -308,4 +308,14 @@ showAllPetsButton.addEventListener("click", () => {
 showCatsButton.addEventListener("click", () => {
   const catsPets = filter(pets, "cat");
   cardsOnDom(catsPets);
+});
+
+showDogsButton.addEventListener("click", () => {
+  const dogsPets = filter(pets, "dog");
+  cardsOnDom(dogsPets);
+});
+
+showDinosButton.addEventListener("click", () => {
+  const dinoPets = filter(pets, "dino");
+  cardsOnDom(dinoPets);
 });
