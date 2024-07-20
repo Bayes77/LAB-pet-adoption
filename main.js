@@ -252,8 +252,8 @@ const pets = [
   //    <h5 class="color">${pet.color}</h5>
   //       <p class="specialSkill">${pet.specialSkill} </p>
   //       <p class="type">${pet.type}</p>
-  //       <a href="#" class="btn btn-primary">Go somewhere</a>
-  //     </div>
+  //  </div>
+  //  <button class="btn btn-danger" id="delete--${pet.id}">Delete</button>
   // </div>`;
 
   // }
@@ -275,8 +275,8 @@ const pets = [
         <p class="card-text">${pet.name}</p>
         <p class="specialSkill">${pet.specialSkill} </p>
         <p class="type">${pet.type}</p>
-
       </div>
+       <button class="btn btn-danger" id="delete--${pet.id}">Delete</button>
     </div>`;
     }
   
@@ -318,4 +318,40 @@ showDogsButton.addEventListener("click", () => {
 showDinosButton.addEventListener("click", () => {
   const dinoPets = filter(pets, "dino");
   cardsOnDom(dinoPets);
+});
+
+
+
+const form =document.querySelector('form');
+
+const createPet= (e) => {
+ e.preventDefault();
+   
+  const createPetObj= {
+    id:pets.length + 1,
+    name:document.querySelector("#name").value,
+    color:document.querySelector("#color").value,
+    specialSkill:document.querySelector("#specialSkill").value,
+    type:document.querySelector("#type").value,
+    imageUrl:document.querySelector("#imageUrl").value,
+
+  };
+
+  pets.push(createPetObj);
+  cardsOnDom(pets);
+  form.reset();
+};
+form.addEventListener('submit', createPet);
+
+
+
+const app=document.querySelector("#app");
+
+app.addEventListener('click', (e) => {
+  if (e.target.id.includes("delete")) {
+    const [, id] = e.target.id.split("--");
+    const index= pets.findIndex((e) => e.id===Number(id));
+    pets.splice(index, 1);
+    cardsOnDom(pets);
+  }
 });

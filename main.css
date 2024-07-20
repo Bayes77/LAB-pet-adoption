@@ -36,8 +36,20 @@ background-color: green;
 
 .card {
     text-align: center;
+    
+
 }
 
-.row {
-    
+
+.submit {
+    background-color: crimson;
+
+}
+
+.card-text {
+    background-color: gray;
+}
+
+#type {
+    border: 10px;
 }
