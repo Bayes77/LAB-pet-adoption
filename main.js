@@ -241,6 +241,7 @@ const pets = [
     }
   ];
 
+//  original domstring/ make sure to double check all parts of domstring
 
   // const targetingApp= document.querySelector("#app")
   // let domString = "";
@@ -260,30 +261,43 @@ const pets = [
 
   // targetingApp.innerHTML = domString
 
+// Rendering to the dom / utility function
+
   const renderToDom = (divId, htmlToRender) => {
     const selectedDiv = document.querySelector(divId);
     selectedDiv.innerHTML = htmlToRender;
   };
 
+// New domstring make sure to double check curly backets and other such symbols
 
   const cardsOnDom = (array) => {
     let domString = "";
     for (const pet of array) {
+      const cardFooter= 
+      pet.type === "cat" ? "cat-Footer":
+      pet.type === "dog" ? "dog-Footer":
+      pet.type === "dino" ? "dino-Footer":
+      "";
+
+
       domString += `<div class="card" style="width: 18rem;">
       <div class="card-body">
       <p class="card-text">${pet.name}</p>
       <img src="${pet.imageUrl}" class="img-thumbnail" alt="...">
-        <p class="specialSkill">${pet.specialSkill} </p>
-        <p class="color">${pet.color}</p>
-        <p class="type">${pet.type}</p>
+      <p class="specialSkill">${pet.specialSkill} </p>
+      <p class="color">${pet.color}</p>
       </div>
-      <div class="cardFooter" dataType="${pet.type}"> ${pet.type}</div>
-       <button class="btn btn-danger" id="delete--${pet.id}">Delete</button>
-    </div>`;
+      <button class="btn btn-danger mx-auto" id="delete--${pet.id}">Delete</button>
+      <div class="cardFooter ${cardFooter}"> ${pet.type}</div>
+      </div>`;
     }
-  
+   
+    // Rendering of the new dom
+
     renderToDom("#app", domString);
   };
+  
+// Filter Function
 
   const filter = (array, pettype) => {
     const petArray = [];
@@ -293,12 +307,14 @@ const pets = [
         petArray.push(pet);
       }
     }
-  
+  // Filter function needs this
     return petArray;
   };
+
+  // Targeting buttons on the dom
   cardsOnDom(pets);
   
-  const showCatsButton = document.querySelector("#cats");
+  const showCatsButton = document.querySelector("#cats"); 
 const showDogsButton = document.querySelector("#dogs");
 const showDinosButton = document.querySelector("#dinos");
 const showAllPetsButton = document.querySelector("#allPets");
@@ -322,12 +338,13 @@ showDinosButton.addEventListener("click", () => {
   cardsOnDom(dinoPets);
 });
 
-
+// Form Function 
 
 const form =document.querySelector('form');
 
 const createPet= (e) => {
- e.preventDefault();
+//  Allforms need this
+  e.preventDefault();
    
   const createPetObj= {
     id:pets.length + 1,
@@ -339,6 +356,8 @@ const createPet= (e) => {
 
   };
 
+  // Add pet function /double check variables when pasting
+
   pets.push(createPetObj);
   cardsOnDom(pets);
   form.reset();
@@ -346,6 +365,8 @@ const createPet= (e) => {
 form.addEventListener('submit', createPet);
 
 
+
+// delete pet function/make sure to verify variables when pasting.
 
 const app=document.querySelector("#app");
 
