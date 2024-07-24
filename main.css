@@ -1,3 +1,6 @@
+/* organize this better/make sure to understand what and why you are applying something */
+/* id=#  class=.  html=red color */
+
 #app {
    display:flex;
    flex-wrap:wrap;
@@ -44,6 +47,7 @@ background-color: green;
 
 .cardFooter {
     text-align: center;
+    
 }
 
 form {
@@ -84,4 +88,29 @@ h5 {
 
 .color {
     text-align: center;
+}
+
+.btn-danger {
+    margin: 50px;
+    text-align: center;
+
+
+}
+
+.card-body {
+text-align: center;
+   
+}
+
+.cat-Footer {
+    background-color: aqua;
+}
+
+.dog-Footer {
+    background-color: green;
+
+}
+
+.dino-Footer {
+    background-color: yellow;
 }
